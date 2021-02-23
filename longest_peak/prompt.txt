@@ -1,4 +1,0 @@
-Write a function that takes in an array of integers and returns the length of the longest peak in the array.
-
-time complexity O(n)
-space complexity O(1)

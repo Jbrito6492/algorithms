@@ -1,8 +1,3 @@
-//I: array
-//O: number
-//C: array needs to have length 3 to have a peak
-//E:
-
 function longestPeak(array) {
   let longestPeakLength = 0;
   let i = 1;
