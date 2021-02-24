@@ -1,14 +1,20 @@
 function arrayOfProducts(array) {
-  // Write your code here.
-  let products = [];
-  for (let i = 0; i < array.length; i++) {
-    let product = 1;
-    for (let j = 1; j < array.length; j++) {
-      if (i !== j) {
-        product *= array[j];
-      }
-    }
-    products.push(product);
-  }
-  return products;
+  let leftRunningProduct = 1;
+  const leftProducts = array.reduce((accumulator, value) => {
+    accumulator.push(leftRunningProduct);
+    leftRunningProduct *= value;
+    return accumulator;
+  }, []);
+
+  let rightRunningProduct = 1;
+  const rightProducts = array.reduceRight((accumulator, value) => {
+    accumulator.unshift(rightRunningProduct);
+    rightRunningProduct *= value;
+    return accumulator;
+  }, []);
+
+  return array.reduce((accumulator, value, index) => {
+    accumulator.push(leftProducts[index] * rightProducts[index]);
+    return accumulator;
+  }, []);
 }
